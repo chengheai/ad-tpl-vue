@@ -2,7 +2,7 @@ version: '3'
 services:
   ad-tpl-vue: #项目的service name
     container_name: 'webhtml' #容器名称
-    image: jenkins/jenkins
+    image: nginx
     restart: always
     ports:
       - 10000:10000
