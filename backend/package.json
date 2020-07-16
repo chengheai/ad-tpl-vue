@@ -9,7 +9,7 @@
     "koa-logger": "^3.1.0",
     "koa-router": "^7.3.0",
     "koa2-cors": "^2.0.5",
-    "mongoose": "^4.13.7"
+    "mongoose": "^5.9.24"
   },
   "scripts": {
     "build":"babel src -s -D -d dist"
