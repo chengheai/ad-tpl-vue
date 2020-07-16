@@ -1,33 +1,22 @@
-"use strict";
+import mongoose from "mongoose";
+import { mongoHost, mongoDB } from "../config";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+mongoose.Promise = global.Promise;
 
-var _mongoose = require("mongoose");
+mongoose.connect(`mongodb://${mongoHost}/${mongoDB}`, { useMongoClient: true });
 
-var _mongoose2 = _interopRequireDefault(_mongoose);
-
-var _config = require("../config");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_mongoose2.default.Promise = global.Promise;
-
-_mongoose2.default.connect(`mongodb://${_config.mongoHost}/${_config.mongoDB}`, { useMongoClient: true });
-
-_mongoose2.default.connection.on("connected", function () {
+mongoose.connection.on("connected", function () {
   console.log("🌈   Mongoose connection open ");
 });
 
-_mongoose2.default.connection.on("error", function (err) {
+mongoose.connection.on("error", function (err) {
   console.log("😱  Mongoose connection error: " + err);
 });
 
 // 断开连接
-_mongoose2.default.connection.on("disconnected", function () {
+mongoose.connection.on("disconnected", function () {
   console.log("💀  Mongoose connection disconnected");
 });
 
-exports.default = _mongoose2.default;
+export default mongoose;
 //# sourceMappingURL=db.js.map

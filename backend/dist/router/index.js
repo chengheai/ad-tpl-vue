@@ -1,22 +1,11 @@
-"use strict";
+import koaRouter from "koa-router";
+import { fetch } from "../controller/zoo";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _koaRouter = require("koa-router");
-
-var _koaRouter2 = _interopRequireDefault(_koaRouter);
-
-var _zoo = require("../controller/zoo");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const router = new _koaRouter2.default();
+const router = new koaRouter();
 
 router.prefix("/api/zoo");
 
-router.get("/:name", _zoo.fetch);
+router.get("/:name", fetch);
 
-exports.default = router;
+export default router;
 //# sourceMappingURL=index.js.map

@@ -1,37 +1,20 @@
-"use strict";
+import Koa from "koa";
+import logger from "koa-logger";
+import "colors";
+import router from "./router";
+import cors from "koa2-cors";
+import "./middlewars/db";
 
-var _koa = require("koa");
+const app = new Koa();
 
-var _koa2 = _interopRequireDefault(_koa);
-
-var _koaLogger = require("koa-logger");
-
-var _koaLogger2 = _interopRequireDefault(_koaLogger);
-
-require("colors");
-
-var _router = require("./router");
-
-var _router2 = _interopRequireDefault(_router);
-
-var _koa2Cors = require("koa2-cors");
-
-var _koa2Cors2 = _interopRequireDefault(_koa2Cors);
-
-require("./middlewars/db");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const app = new _koa2.default();
-
-app.use((0, _koaLogger2.default)());
+app.use(logger());
 // app.use(
 //   cors({
 //     origin: "http://localhost"
 //   })
 // )
 
-app.use(_router2.default.routes(), _router2.default.allowedMethods());
+app.use(router.routes(), router.allowedMethods());
 // app.use(async ctx => {
 //   ctx.body = "hello  Koa"
 // })
