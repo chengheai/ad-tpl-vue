@@ -19,7 +19,7 @@ app.use(router.routes(),router.allowedMethods())
 //   ctx.body = "hello  Koa"
 // })
 
-app.listen(50000, err => {
+app.listen(30000, err => {
   if (err) console.log(`it has an error \n ${err}`.red)
-  console.log(`🌎 ==>> koa listen port on 50000`.green)
+  console.log(`🌎 ==>> koa listen port on 30000`.green)
 })

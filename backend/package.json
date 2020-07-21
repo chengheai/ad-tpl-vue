@@ -12,6 +12,6 @@
     "mongoose": "^4.13.7"
   },
   "scripts": {
-    "build":"babel src -s -D -d dist"
+    "build": "babel src -s -D -d dist"
   }
 }
